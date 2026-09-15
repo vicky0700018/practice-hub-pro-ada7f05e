@@ -14,7 +14,7 @@ export default function Marketplace() {
     `Bookings (${newCount} new)`,
     `Reviews (${reviews.length})`,
   ];
-  const activeTab = tabs.find((t) => t.startsWith(tab)) ?? tabs[0];
+  const activeTab = tabs.find((t) => t.startsWith(tab)) ?? "Listing";
 
   const setStatus = (id: string, status: "accepted" | "declined" | "completed") => {
     setBookings((bs) => bs.map((b) => (b.id === id ? { ...b, status } : b)));
@@ -37,7 +37,7 @@ export default function Marketplace() {
       <Tabs
         tabs={tabs}
         active={activeTab}
-        onChange={(t) => setTab(t.split(" (")[0])}
+        onChange={(t) => setTab(t.split(" (")[0] ?? t)}
       />
 
       <div className="mt-4">

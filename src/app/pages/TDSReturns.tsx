@@ -33,14 +33,14 @@ export default function TDSReturns() {
         id: nextId("t"),
         client,
         quarter,
-        form: form.split(" ")[0],
+        form: form.split(" ")[0] ?? form,
         tdsTotal: 0,
         flags: 0,
         status: "Preparation",
       },
       ...rs,
     ]);
-    toast(`${form.split(" ")[0]} opened for ${client}.`);
+    toast(`${form.split(" ")[0] ?? form} opened for ${client}.`);
   };
 
   return (

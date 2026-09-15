@@ -30,7 +30,7 @@ export function AddClientModal({
 }) {
   const { setClients, toast } = useStore();
   const [name, setName] = useState("");
-  const [type, setType] = useState(M.CLIENT_TYPES[0]);
+  const [type, setType] = useState(M.CLIENT_TYPES[0] as string);
   const [kyc, setKyc] = useState("");
   const [pan, setPan] = useState("");
   const [gstin, setGstin] = useState("");
@@ -42,7 +42,7 @@ export function AddClientModal({
 
   const reset = () => {
     setName("");
-    setType(M.CLIENT_TYPES[0]);
+    setType(M.CLIENT_TYPES[0] as string);
     setKyc("");
     setPan("");
     setGstin("");

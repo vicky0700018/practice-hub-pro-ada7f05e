@@ -911,7 +911,9 @@ export const ROLES = ["Owner", "Manager", "Staff", "Read only"];
 
 export function formatINR(amount: number): string {
   const fixed = Math.abs(amount % 1) > 0 ? amount.toFixed(2) : String(Math.round(amount));
-  const [whole, dec] = fixed.split(".");
+  const parts = fixed.split(".");
+  const whole = parts[0] ?? "";
+  const dec = parts[1];
   const last3 = whole.slice(-3);
   const rest = whole.slice(0, -3);
   const grouped = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + last3 : last3;
